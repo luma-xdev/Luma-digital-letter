@@ -128,20 +128,44 @@ function openEnvelope() {
 
     envelopeOpened = true;
 
-
     const flap =
         envelope.querySelector(".envelope-flap");
 
     const paper =
         envelope.querySelector(".envelope-paper");
 
+    const envelopeBody =
+        envelope.querySelector(".envelope");
+
+
+    envelopeBody.style.animation =
+        "none";
+
+    envelopeBody.style.transform =
+        "translateY(-5px) scale(1.02)";
+
 
     flap.style.transform =
         "rotateX(180deg)";
 
 
-    paper.style.transform =
-        "translateY(-45px)";
+    setTimeout(() => {
+
+        paper.style.transform =
+            "translateY(-55px)";
+
+    }, 250);
+
+
+    setTimeout(() => {
+
+        envelopeScreen.style.opacity = "0";
+
+        envelopeScreen.style.transform =
+            "scale(0.96)";
+
+
+    }, 700);
 
 
     setTimeout(() => {
@@ -150,7 +174,7 @@ function openEnvelope() {
 
         envelopeOpened = false;
 
-    }, 1000);
+    }, 1200);
 
 }
 
