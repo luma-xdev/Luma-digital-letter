@@ -2526,3 +2526,20 @@ button {
     }
 
 }
+/* =========================================
+   MEMORY IMAGES — FULL PHOTO DISPLAY
+========================================= */
+
+.memory-image {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* Keep the full image visible on mobile */
+@media (max-width: 600px) {
+    .memory-image {
+        background-size: 100% 100%;
+        background-position: center;
+    }
+}
