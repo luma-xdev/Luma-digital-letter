@@ -2537,9 +2537,9 @@ button {
 }
 
 /* Keep the full image visible on mobile */
-@media (max-width: 600px) {
+@media (max-width: 420px) {
     .memory-image {
-        background-size: 500% 500%;
+        background-size: 100% auto;
         background-position: center;
     }
 }
