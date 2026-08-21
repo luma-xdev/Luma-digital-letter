@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="LUMA — A premium interactive digital letter experience.">
+
+    <meta name="author"
+          content="LUMA-XDEV">
+
+    <title>LUMA — Digital Letter</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         BACKGROUND
+    ========================================== -->
+
+    <div class="background">
+
+        <div class="stars"></div>
+
+        <div class="particles"></div>
+
+        <div class="glow glow-one"></div>
+
+        <div class="glow glow-two"></div>
+
+    </div>
+
+
+    <!-- =========================================
+         MAIN APPLICATION
+    ========================================== -->
+
+    <main id="app">
+
+
+        <!-- =====================================
+             SCREEN 1 — WELCOME
+        ====================================== -->
+
+        <section
+            id="welcome-screen"
+            class="screen welcome-screen"
+            aria-label="Welcome"
+        >
+
+            <div class="welcome-content">
+
+                <div class="brand-mark">
+                    L
+                </div>
+
+                <p class="eyebrow">
+                    A DIGITAL EXPERIENCE
+                </p>
+
+                <h1>
+                    Someone left
+                    <span>a letter</span>
+                    for you.
+                </h1>
+
+                <p class="welcome-description">
+                    Some words are not meant to be spoken.
+                    They are meant to be discovered.
+                </p>
+
+                <button
+                    id="begin-button"
+                    class="primary-button"
+                    type="button"
+                >
+                    Begin the Journey
+                    <span aria-hidden="true">→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             SCREEN 2 — ENVELOPE
+        ====================================== -->
+
+        <section
+            id="envelope-screen"
+            class="screen envelope-screen hidden"
+            aria-label="Open the letter"
+        >
+
+            <div class="envelope-content">
+
+                <p class="eyebrow">
+                    YOU HAVE A MESSAGE
+                </p>
+
+                <div
+                    class="envelope-wrapper"
+                    id="envelope"
+                >
+
+                    <div class="envelope">
+
+                        <div class="envelope-back"></div>
+
+                        <div class="envelope-paper">
+
+                            <div class="paper-content">
+
+                                <span class="paper-small">
+                                    FOR YOU
+                                </span>
+
+                                <span class="paper-heart">
+                                    ♥
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="envelope-front"></div>
+
+                        <div class="envelope-flap"></div>
+
+                    </div>
+
+                </div>
+
+                <h2>
+                    A letter,
+                    <span>waiting to be opened.</span>
+                </h2>
+
+                <button
+                    id="open-letter-button"
+                    class="primary-button"
+                    type="button"
+                >
+                    Open Letter
+                    <span aria-hidden="true">✦</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             SCREEN 3 — DIGITAL LETTER
+        ====================================== -->
+
+        <section
+            id="letter-screen"
+            class="screen letter-screen hidden"
+            aria-label="Digital letter"
+        >
+
+            <div class="letter-container">
+
+                <div class="letter-header">
+
+                    <span class="letter-label">
+                        A LETTER FROM THE HEART
+                    </span>
+
+                    <div class="letter-line"></div>
+
+                </div>
+
+
+                <article class="letter-card">
+
+                    <div class="letter-decoration">
+                        ✦
+                    </div>
+
+                    <p class="letter-greeting">
+                        Dear You,
+                    </p>
+
+                    <div
+                        id="letter-content"
+                        class="letter-content"
+                    >
+
+                        <p>
+                            There are some things that
+                            words can never completely explain.
+                        </p>
+
+                        <p>
+                            Some feelings stay quietly
+                            between the lines, waiting for
+                            the right moment to be understood.
+                        </p>
+
+                        <p>
+                            So instead of saying everything
+                            out loud, I left these words here.
+                        </p>
+
+                        <p>
+                            Read them slowly.
+                            Maybe somewhere between these
+                            lines, you will find something
+                            meant only for you.
+                        </p>
+
+                    </div>
+
+
+                    <div class="letter-signature">
+
+                        <span>
+                            With words left unsaid,
+                        </span>
+
+                        <strong>
+                            LUMA
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <button
+                    id="memories-button"
+                    class="secondary-button"
+                    type="button"
+                >
+                    Continue
+                    <span aria-hidden="true">↓</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             SCREEN 4 — MEMORIES
+        ====================================== -->
+
+        <section
+            id="memories-screen"
+            class="screen memories-screen hidden"
+            aria-label="Memories"
+        >
+
+            <div class="memories-container">
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">
+                        CHAPTER TWO
+                    </span>
+
+                    <h2>
+                        Little moments,
+                        <span>lasting memories.</span>
+                    </h2>
+
+                    <p>
+                        Some memories don't need
+                        explanations. They simply stay.
+                    </p>
+
+                </div>
+
+
+                <div class="memory-grid">
+
+
+                    <!-- MEMORY 01 -->
+
+                    <article class="memory-card">
+
+                        <div class="memory-image image-one">
+
+                            <span>
+                                MEMORY 01
+                            </span>
+
+                        </div>
+
+                        <div class="memory-info">
+
+                            <h3>
+                                The Beginning
+                            </h3>
+
+                            <p>
+                                Every beautiful story
+                                starts somewhere.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- MEMORY 02 -->
+
+                    <article class="memory-card">
+
+                        <div class="memory-image image-two">
+
+                            <span>
+                                MEMORY 02
+                            </span>
+
+                        </div>
+
+                        <div class="memory-info">
+
+                            <h3>
+                                The Moment
+                            </h3>
+
+                            <p>
+                                A moment that became
+                                a memory.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- MEMORY 03 -->
+
+                    <article class="memory-card">
+
+                        <div class="memory-image image-three">
+
+                            <span>
+                                MEMORY 03
+                            </span>
+
+                        </div>
+
+                        <div class="memory-info">
+
+                            <h3>
+                                Still Here
+                            </h3>
+
+                            <p>
+                                Some moments never
+                                really leave us.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <button
+                    id="final-button"
+                    class="secondary-button"
+                    type="button"
+                >
+                    One Last Thing
+                    <span aria-hidden="true">→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             SCREEN 5 — FINAL MESSAGE
+        ====================================== -->
+
+        <section
+            id="final-screen"
+            class="screen final-screen hidden"
+            aria-label="Final message"
+        >
+
+            <div class="final-content">
+
+                <div class="final-symbol">
+                    ✦
+                </div>
+
+                <span class="eyebrow">
+                    THE LAST PAGE
+                </span>
+
+                <h2>
+                    Some words are
+                    <span>meant to stay.</span>
+                </h2>
+
+                <p class="final-message">
+                    Maybe this letter ends here,
+                    but the feeling behind it doesn't
+                    have to.
+                </p>
+
+                <div class="final-signature">
+                    <span>
+                        — LUMA
+                    </span>
+                </div>
+
+                <button
+                    id="restart-button"
+                    class="primary-button"
+                    type="button"
+                >
+                    Read Again
+                    <span aria-hidden="true">↻</span>
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="site-footer">
+
+        <span>
+            Crafted with intention
+        </span>
+
+        <span class="footer-dot">
+            •
+        </span>
+
+        <strong>
+            LUMA-XDEV
+        </strong>
+
+    </footer>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+  </html>
