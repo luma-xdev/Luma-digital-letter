@@ -2539,7 +2539,7 @@ button {
 /* Keep the full image visible on mobile */
 @media (max-width: 600px) {
     .memory-image {
-        background-size: 50% 50%;
+        background-size: 500% 500%;
         background-position: center;
     }
 }
