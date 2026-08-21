@@ -1,0 +1,1688 @@
+/* =========================================
+   LUMA — DIGITAL LETTER
+   MAIN STYLESHEET
+========================================= */
+
+
+/* =========================================
+   01. ROOT VARIABLES
+========================================= */
+
+:root {
+
+    --bg-main: #05050b;
+    --bg-secondary: #0b0a16;
+
+    --text-main: #f8f7ff;
+    --text-soft: #aaa8bd;
+    --text-muted: #77758b;
+
+    --accent-one: #9d7cff;
+    --accent-two: #6f5cff;
+    --accent-soft: rgba(157, 124, 255, 0.18);
+
+    --glass: rgba(255, 255, 255, 0.055);
+    --glass-border: rgba(255, 255, 255, 0.12);
+
+    --shadow-soft:
+        0 20px 80px rgba(0, 0, 0, 0.45);
+
+    --shadow-glow:
+        0 0 45px rgba(157, 124, 255, 0.18);
+
+    --radius-large: 28px;
+    --radius-medium: 18px;
+
+    --transition:
+        0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================
+   02. RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(111, 92, 255, 0.10),
+            transparent 35%
+        ),
+        var(--bg-main);
+
+    color: var(--text-main);
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   03. BACKGROUND
+========================================= */
+
+.background {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(157, 124, 255, 0.08),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(111, 92, 255, 0.07),
+            transparent 30%
+        );
+}
+
+
+/* =========================================
+   04. STARS
+========================================= */
+
+.stars,
+.stars::before,
+.stars::after {
+
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    border-radius: 50%;
+
+    content: "";
+
+    box-shadow:
+        5vw 8vh rgba(255,255,255,.55),
+        12vw 25vh rgba(255,255,255,.35),
+        18vw 70vh rgba(255,255,255,.45),
+        27vw 15vh rgba(255,255,255,.6),
+        35vw 55vh rgba(255,255,255,.35),
+        42vw 85vh rgba(255,255,255,.5),
+        50vw 12vh rgba(255,255,255,.45),
+        58vw 38vh rgba(255,255,255,.55),
+        64vw 72vh rgba(255,255,255,.4),
+        72vw 22vh rgba(255,255,255,.55),
+        79vw 60vh rgba(255,255,255,.35),
+        87vw 15vh rgba(255,255,255,.5),
+        94vw 82vh rgba(255,255,255,.4);
+}
+
+
+.stars {
+    top: 0;
+    left: 0;
+
+    animation:
+        starFloat 8s ease-in-out infinite alternate;
+}
+
+
+.stars::before {
+
+    top: 20vh;
+    left: 10vw;
+
+    opacity: .55;
+
+    transform: scale(.7);
+}
+
+
+.stars::after {
+
+    top: 55vh;
+    left: 40vw;
+
+    opacity: .4;
+
+    transform: scale(.5);
+}
+
+
+@keyframes starFloat {
+
+    from {
+        opacity: .55;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: .9;
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================================
+   05. GLOW EFFECTS
+========================================= */
+
+.glow {
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: .14;
+
+    animation:
+        glowMove 12s ease-in-out infinite alternate;
+}
+
+
+.glow-one {
+
+    top: -180px;
+    left: -160px;
+
+    background: #765cff;
+}
+
+
+.glow-two {
+
+    right: -180px;
+    bottom: -180px;
+
+    background: #a87cff;
+
+    animation-delay: -5s;
+}
+
+
+@keyframes glowMove {
+
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(35px, -25px, 0);
+    }
+}
+
+
+/* =========================================
+   06. MAIN APPLICATION
+========================================= */
+
+#app {
+
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+.screen {
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        80px
+        24px;
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+
+.hidden {
+
+    display: none !important;
+}
+
+
+/* =========================================
+   07. WELCOME SCREEN
+========================================= */
+
+.welcome-content {
+
+    width: 100%;
+    max-width: 760px;
+
+    text-align: center;
+
+    animation:
+        welcomeIn 1.2s ease forwards;
+}
+
+
+@keyframes welcomeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            scale(.97);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   08. BRAND MARK
+========================================= */
+
+.brand-mark {
+
+    width: 78px;
+    height: 78px;
+
+    margin:
+        0 auto
+        28px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(157,124,255,.22),
+            rgba(255,255,255,.03)
+        );
+
+    box-shadow:
+        0 0 45px
+        rgba(157,124,255,.18);
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+    letter-spacing: .05em;
+
+    color: white;
+
+    position: relative;
+}
+
+
+.brand-mark::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -7px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(157,124,255,.18);
+
+    animation:
+        ringPulse 3s ease-in-out infinite;
+}
+
+
+@keyframes ringPulse {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+        opacity: .45;
+    }
+
+    50% {
+
+        transform: scale(1.08);
+
+        opacity: .9;
+    }
+}
+
+
+/* =========================================
+   09. EYEBROW
+========================================= */
+
+.eyebrow {
+
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: var(--accent-one);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: .28em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   10. MAIN HEADINGS
+========================================= */
+
+h1,
+h2,
+h3 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-weight: 400;
+
+    line-height: 1.1;
+}
+
+
+.welcome-content h1 {
+
+    font-size:
+        clamp(
+            42px,
+            8vw,
+            82px
+        );
+
+    letter-spacing:
+        -.035em;
+}
+
+
+h1 span,
+h2 span {
+
+    color: var(--accent-one);
+
+    font-style: italic;
+}
+
+
+.welcome-description {
+
+    max-width: 530px;
+
+    margin:
+        25px auto
+        34px;
+
+    color: var(--text-soft);
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   11. BUTTONS
+========================================= */
+
+button {
+
+    border: 0;
+
+    font: inherit;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.primary-button {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    min-height: 56px;
+
+    padding:
+        0 27px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.16);
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(157,124,255,.95),
+            rgba(111,92,255,.9)
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: .02em;
+
+    box-shadow:
+        0 15px 45px
+        rgba(111,92,255,.22);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        filter var(--transition);
+}
+
+
+.primary-button:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 20px 60px
+        rgba(111,92,255,.32);
+
+    filter: brightness(1.08);
+}
+
+
+.primary-button:active {
+
+    transform:
+        translateY(-1px)
+        scale(.98);
+}
+
+
+.primary-button span {
+
+    font-size: 18px;
+
+    transition:
+        transform .3s ease;
+}
+
+
+.primary-button:hover span {
+
+    transform:
+        translateX(4px);
+}
+
+
+.secondary-button {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    min-height: 50px;
+
+    padding:
+        0 24px;
+
+    margin-top: 35px;
+
+    border:
+        1px solid
+        var(--glass-border);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    color:
+        var(--text-main);
+
+    backdrop-filter:
+        blur(15px);
+
+    transition:
+        all var(--transition);
+}
+
+
+.secondary-button:hover {
+
+    border-color:
+        rgba(157,124,255,.4);
+
+    background:
+        rgba(157,124,255,.09);
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =========================================
+   12. ENVELOPE SCREEN
+========================================= */
+
+.envelope-content {
+
+    text-align: center;
+
+    width: 100%;
+}
+
+
+.envelope-content h2 {
+
+    margin-top: 38px;
+
+    font-size:
+        clamp(
+            32px,
+            6vw,
+            58px
+        );
+}
+
+
+.envelope-content h2 span {
+
+    display: block;
+
+    margin-top: 7px;
+
+    font-size: .72em;
+}
+
+
+/* =========================================
+   13. ENVELOPE
+========================================= */
+
+.envelope-wrapper {
+
+    width: 300px;
+    height: 210px;
+
+    margin:
+        10px auto
+        0;
+
+    perspective: 1000px;
+
+    cursor: pointer;
+}
+
+
+.envelope {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    transform-style:
+        preserve-3d;
+
+    filter:
+        drop-shadow(
+            0 30px 45px
+            rgba(0,0,0,.5)
+        );
+
+    animation:
+        envelopeFloat 4s ease-in-out infinite;
+}
+
+
+@keyframes envelopeFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+    }
+
+    50% {
+
+        transform:
+            translateY(-10px);
+    }
+}
+
+
+.envelope-back {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #2b2444,
+            #151222
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    border-radius:
+        8px;
+}
+
+
+.envelope-front {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 62%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #352c51,
+            #171324
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            50% 70%,
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+
+    border-radius:
+        0 0 8px 8px;
+
+    z-index: 4;
+}
+
+
+.envelope-flap {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 70%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #443963,
+            #211a35
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 72%
+        );
+
+    transform-origin:
+        top center;
+
+    z-index: 5;
+
+    transition:
+        transform .9s
+        cubic-bezier(.22,1,.36,1);
+}
+
+
+.envelope-wrapper:hover
+.envelope-flap {
+
+    transform:
+        rotateX(25deg);
+}
+
+
+/* =========================================
+   14. PAPER
+========================================= */
+
+.envelope-paper {
+
+    position: absolute;
+
+    left: 8%;
+
+    bottom: 5%;
+
+    width: 84%;
+    height: 78%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #faf8ff,
+            #e9e5f4
+        );
+
+    border-radius: 4px;
+
+    z-index: 2;
+
+    transform:
+        translateY(18px);
+
+    transition:
+        transform .8s
+        cubic-bezier(.22,1,.36,1);
+}
+
+
+.envelope-wrapper:hover
+.envelope-paper {
+
+    transform:
+        translateY(-15px);
+}
+
+
+.paper-content {
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    color: #241d35;
+}
+
+
+.paper-small {
+
+    font-size: 9px;
+
+    letter-spacing: .3em;
+
+    font-weight: 700;
+}
+
+
+.paper-heart {
+
+    margin-top: 10px;
+
+    color: #8066d8;
+
+    font-size: 25px;
+}
+
+
+/* =========================================
+   15. LETTER
+========================================= */
+
+.letter-container {
+
+    width: 100%;
+
+    max-width: 850px;
+
+    text-align: center;
+}
+
+
+.letter-header {
+
+    margin-bottom: 25px;
+}
+
+
+.letter-label {
+
+    color: var(--accent-one);
+
+    font-size: 10px;
+
+    letter-spacing: .25em;
+
+    font-weight: 700;
+}
+
+
+.letter-line {
+
+    width: 55px;
+    height: 1px;
+
+    margin:
+        15px auto
+        0;
+
+    background:
+        var(--accent-one);
+
+    opacity: .5;
+}
+
+
+.letter-card {
+
+    position: relative;
+
+    padding:
+        55px
+        60px;
+
+    text-align: left;
+
+    border:
+        1px solid
+        var(--glass-border);
+
+    border-radius:
+        var(--radius-large);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+
+    box-shadow:
+        var(--shadow-soft),
+        var(--shadow-glow);
+
+    backdrop-filter:
+        blur(25px);
+}
+
+
+.letter-decoration {
+
+    position: absolute;
+
+    top: 25px;
+    right: 30px;
+
+    color:
+        var(--accent-one);
+
+    opacity: .6;
+
+    font-size: 20px;
+}
+
+
+.letter-greeting {
+
+    margin-bottom: 30px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 28px;
+
+    font-style: italic;
+}
+
+
+.letter-content p {
+
+    margin-bottom: 24px;
+
+    color:
+        var(--text-soft);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 17px;
+
+    line-height: 1.95;
+}
+
+
+.letter-signature {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    margin-top: 45px;
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-style: italic;
+}
+
+
+.letter-signature strong {
+
+    margin-top: 5px;
+
+    color:
+        var(--accent-one);
+
+    font-size: 23px;
+}
+
+
+/* =========================================
+   16. MEMORIES
+========================================= */
+
+.memories-container {
+
+    width: 100%;
+
+    max-width: 1050px;
+
+    text-align: center;
+}
+
+
+.section-heading {
+
+    max-width: 680px;
+
+    margin:
+        0 auto
+        45px;
+}
+
+
+.section-heading h2 {
+
+    font-size:
+        clamp(
+            36px,
+            6vw,
+            58px
+        );
+}
+
+
+.section-heading p {
+
+    margin-top: 18px;
+
+    color:
+        var(--text-soft);
+
+    line-height: 1.7;
+}
+
+
+.memory-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.memory-card {
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        var(--glass-border);
+
+    border-radius:
+        var(--radius-medium);
+
+    background:
+        var(--glass);
+
+    text-align: left;
+
+    backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.25);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition);
+}
+
+
+.memory-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(157,124,255,.35);
+}
+
+
+.memory-image {
+
+    position: relative;
+
+    height: 220px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    padding: 18px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #29203e,
+            #0d0b15
+        );
+}
+
+
+.memory-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(157,124,255,.2),
+            transparent 55%
+        );
+}
+
+
+.memory-image span {
+
+    position: relative;
+
+    z-index: 1;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: .2em;
+
+    color:
+        rgba(255,255,255,.65);
+}
+
+
+.memory-info {
+
+    padding: 22px;
+}
+
+
+.memory-info h3 {
+
+    font-size: 24px;
+}
+
+
+.memory-info p {
+
+    margin-top: 9px;
+
+    color:
+        var(--text-muted);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   17. FINAL SCREEN
+========================================= */
+
+.final-content {
+
+    width: 100%;
+
+    max-width: 700px;
+
+    text-align: center;
+
+    animation:
+        finalIn 1s ease forwards;
+}
+
+
+@keyframes finalIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+.final-symbol {
+
+    width: 80px;
+    height: 80px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin:
+        0 auto
+        25px;
+
+    border:
+        1px solid
+        rgba(157,124,255,.25);
+
+    border-radius: 50%;
+
+    color:
+        var(--accent-one);
+
+    font-size: 28px;
+
+    box-shadow:
+        0 0 50px
+        rgba(157,124,255,.15);
+
+    animation:
+        finalPulse 3s ease-in-out infinite;
+}
+
+
+@keyframes finalPulse {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+    }
+
+    50% {
+
+        transform:
+            scale(1.06);
+    }
+}
+
+
+.final-content h2 {
+
+    font-size:
+        clamp(
+            42px,
+            7vw,
+            72px
+        );
+}
+
+
+.final-message {
+
+    max-width: 520px;
+
+    margin:
+        25px auto;
+
+    color:
+        var(--text-soft);
+
+    line-height: 1.8;
+}
+
+
+.final-signature {
+
+    margin-top: 30px;
+
+    color:
+        var(--accent-one);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 20px;
+
+    font-style: italic;
+}
+
+
+/* =========================================
+   18. FOOTER
+========================================= */
+
+.site-footer {
+
+    position: fixed;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    padding:
+        15px 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    color:
+        rgba(255,255,255,.35);
+
+    font-size: 9px;
+
+    letter-spacing: .16em;
+
+    text-transform: uppercase;
+
+    pointer-events: none;
+}
+
+
+.site-footer strong {
+
+    color:
+        rgba(157,124,255,.7);
+
+    font-weight: 600;
+}
+
+
+.footer-dot {
+
+    color:
+        rgba(157,124,255,.6);
+}
+
+
+/* =========================================
+   19. SELECTION
+========================================= */
+
+::selection {
+
+    background:
+        rgba(157,124,255,.35);
+
+    color:
+        white;
+}
+
+
+/* =========================================
+   20. SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+
+    width: 6px;
+}
+
+
+::-webkit-scrollbar-track {
+
+    background:
+        var(--bg-main);
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(157,124,255,.35);
+
+    border-radius:
+        999px;
+}
+
+
+/* =========================================
+   21. RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+    .memory-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .memory-card:last-child {
+
+        grid-column:
+            1 / -1;
+
+        max-width: 400px;
+
+        width: 100%;
+
+        margin: 0 auto;
+    }
+
+    .letter-card {
+
+        padding:
+            45px 35px;
+    }
+}
+
+
+/* =========================================
+   22. RESPONSIVE — MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .screen {
+
+        min-height: 100svh;
+
+        padding:
+            65px 18px
+            75px;
+    }
+
+
+    .brand-mark {
+
+        width: 68px;
+        height: 68px;
+
+        margin-bottom: 24px;
+    }
+
+
+    .welcome-content h1 {
+
+        font-size:
+            clamp(
+                39px,
+                12vw,
+                58px
+            );
+    }
+
+
+    .welcome-description {
+
+        padding:
+            0 10px;
+
+        font-size: 14px;
+    }
+
+
+    .primary-button {
+
+        min-height: 53px;
+
+        padding:
+            0 22px;
+
+        font-size: 13px;
+    }
+
+
+    .envelope-wrapper {
+
+        width: 275px;
+        height: 190px;
+    }
+
+
+    .envelope-content h2 {
+
+        font-size:
+            35px;
+    }
+
+
+    .letter-card {
+
+        padding:
+            38px 25px;
+
+        border-radius:
+            22px;
+    }
+
+
+    .letter-greeting {
+
+        font-size: 25px;
+    }
+
+
+    .letter-content p {
+
+        font-size: 15px;
+
+        line-height: 1.85;
+    }
+
+
+    .letter-signature {
+
+        margin-top: 35px;
+    }
+
+
+    .memory-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 16px;
+    }
+
+
+    .memory-card:last-child {
+
+        grid-column:
+            auto;
+
+        max-width: none;
+    }
+
+
+    .memory-image {
+
+        height: 210px;
+    }
+
+
+    .section-heading {
+
+        margin-bottom: 32px;
+    }
+
+
+    .section-heading h2 {
+
+        font-size:
+            39px;
+    }
+
+
+    .final-content h2 {
+
+        font-size:
+            43px;
+    }
+
+
+    .final-message {
+
+        font-size: 14px;
+
+        padding:
+            0 10px;
+    }
+
+
+    .site-footer {
+
+        font-size: 7px;
+
+        letter-spacing: .11em;
+    }
+
+}
+
+
+/* =========================================
+   23. REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        scroll-behavior:
+            auto !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+
+}
