@@ -2530,16 +2530,11 @@ button {
    MEMORY IMAGES — FULL PHOTO DISPLAY
 ========================================= */
 
-.memory-image {
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
-/* Keep the full image visible on mobile */
-@media (max-width: 420px) {
+@media (max-width: 600px) {
     .memory-image {
+        height: 420px;
         background-size: 100% auto;
         background-position: center;
+        background-repeat: no-repeat;
     }
 }
