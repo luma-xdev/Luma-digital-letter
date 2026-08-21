@@ -119,7 +119,6 @@ envelope.addEventListener("click", () => {
 
 let envelopeOpened = false;
 
-
 function openEnvelope() {
 
     if (envelopeOpened) {
@@ -177,7 +176,6 @@ function openEnvelope() {
     }, 1200);
 
 }
-
 
 /* =========================================
    05. LETTER → MEMORIES
