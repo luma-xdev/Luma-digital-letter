@@ -2538,3 +2538,59 @@ button {
         background-repeat: no-repeat;
     }
 }
+/* =========================================
+   MEMORY — CINEMATIC HOVER / TOUCH EFFECT
+========================================= */
+
+.memory-card {
+    transition:
+        transform 0.5s cubic-bezier(.22,1,.36,1),
+        box-shadow 0.5s ease;
+}
+
+.memory-image {
+    transition:
+        background-size 0.8s cubic-bezier(.22,1,.36,1),
+        filter 0.5s ease;
+}
+
+.memory-card:hover .memory-image {
+    filter: brightness(1.08);
+}
+
+/* Soft cinematic glow */
+
+.memory-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(157,124,255,0.08),
+            transparent 45%,
+            rgba(255,255,255,0.03)
+        );
+
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.memory-card:hover::after {
+    opacity: 1;
+}
+
+/* Mobile: keep the card stable */
+
+@media (max-width: 600px) {
+
+    .memory-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .memory-card:active {
+        transform: scale(0.99);
+    }
+}
