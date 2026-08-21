@@ -2886,3 +2886,140 @@ button {
         font-size: 1rem;
     }
 }
+/* =========================================
+   LUMA — FINAL RESTART EXPERIENCE
+========================================= */
+
+.final-actions {
+    position: relative;
+    z-index: 3;
+
+    margin-top: 42px;
+
+    text-align: center;
+
+    animation:
+        finalActionsIn
+        1s
+        1.5s
+        both;
+}
+
+@keyframes finalActionsIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.restart-button {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    padding: 15px 24px;
+
+    border: 1px solid
+        rgba(157,124,255,.35);
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(157,124,255,.16),
+            rgba(157,124,255,.05)
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    letter-spacing: .03em;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.25);
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+}
+
+.restart-button:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(157,124,255,.65);
+
+    background:
+        rgba(157,124,255,.14);
+
+    box-shadow:
+        0 18px 45px
+        rgba(0,0,0,.35),
+
+        0 0 30px
+        rgba(157,124,255,.12);
+}
+
+.restart-arrow {
+
+    font-size: 20px;
+
+    line-height: 1;
+
+    transition:
+        transform .5s ease;
+}
+
+.restart-button:hover
+.restart-arrow {
+
+    transform:
+        rotate(-360deg);
+}
+
+.final-note {
+
+    margin-top: 16px;
+
+    color:
+        rgba(255,255,255,.38);
+
+    font-size: 11px;
+
+    letter-spacing:
+        .08em;
+}
+
+@media (max-width: 600px) {
+
+    .restart-button {
+        width: auto;
+        min-width: 210px;
+    }
+
+    .final-actions {
+        margin-top: 34px;
+    }
+}
