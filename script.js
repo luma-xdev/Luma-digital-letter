@@ -505,3 +505,24 @@ window.addEventListener("load", () => {
     );
 
 });
+/* =========================================
+   RESTART JOURNEY
+========================================= */
+
+function restartJourney() {
+
+    document.body.classList.add("journey-restarting");
+
+    setTimeout(() => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+        document.body.classList.remove(
+            "journey-restarting"
+        );
+
+    }, 500);
+}
