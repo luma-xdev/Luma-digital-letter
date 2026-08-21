@@ -2112,3 +2112,417 @@ button {
     }
 
 }
+/* =========================================
+   LUMA — PREMIUM MEMORIES UPGRADE
+========================================= */
+
+.memories-screen {
+    position: relative;
+    overflow: hidden;
+}
+
+.memories-screen::before {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(157, 124, 255, 0.055);
+
+    filter: blur(110px);
+
+    pointer-events: none;
+
+    top: 15%;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.memories-container {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.section-heading {
+    animation:
+        memoriesHeadingIn
+        0.9s
+        ease
+        both;
+}
+
+@keyframes memoriesHeadingIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-heading h2 {
+    text-shadow:
+        0 15px 45px
+        rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================
+   MEMORY GRID
+========================================= */
+
+.memory-grid {
+    perspective: 1200px;
+}
+
+
+/* =========================================
+   MEMORY CARD
+========================================= */
+
+.memory-card {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+
+    box-shadow:
+        0 25px 65px
+        rgba(0,0,0,.32),
+
+        inset 0 1px 0
+        rgba(255,255,255,.07);
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform .55s
+        cubic-bezier(.22,1,.36,1),
+
+        border-color .4s ease,
+
+        box-shadow .5s ease;
+}
+
+.memory-card:hover {
+
+    transform:
+        translateY(-12px)
+        rotateX(2deg);
+
+    border-color:
+        rgba(157,124,255,.35);
+
+    box-shadow:
+        0 35px 90px
+        rgba(0,0,0,.45),
+
+        0 0 45px
+        rgba(157,124,255,.08);
+}
+
+
+/* =========================================
+   MEMORY IMAGE
+========================================= */
+
+.memory-image {
+    position: relative;
+
+    height: 245px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(157,124,255,.22),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            145deg,
+            #30274a,
+            #0d0b16
+        );
+}
+
+
+/* Image light effect */
+
+.memory-image::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            rgba(255,255,255,.10),
+            transparent 25%
+        );
+
+    opacity: .8;
+
+    transition:
+        transform .8s ease,
+        opacity .5s ease;
+}
+
+
+/* Bottom overlay */
+
+.memory-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(5,5,11,.9),
+            transparent 55%
+        );
+
+    z-index: 1;
+}
+
+
+.memory-card:hover
+.memory-image::before {
+
+    transform:
+        scale(1.18);
+
+    opacity: 1;
+}
+
+
+/* =========================================
+   DIFFERENT MEMORY VISUALS
+========================================= */
+
+.image-one {
+
+    background:
+        radial-gradient(
+            circle at 65% 30%,
+            rgba(180,150,255,.30),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #211a37,
+            #090811
+        );
+}
+
+
+.image-two {
+
+    background:
+        radial-gradient(
+            circle at 30% 40%,
+            rgba(125,100,255,.30),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            135deg,
+            #17142d,
+            #08070e
+        );
+}
+
+
+.image-three {
+
+    background:
+        radial-gradient(
+            circle at 60% 35%,
+            rgba(200,170,255,.22),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #261e3d,
+            #08070e
+        );
+}
+
+
+/* =========================================
+   MEMORY LABEL
+========================================= */
+
+.memory-image span {
+
+    position: absolute;
+
+    left: 20px;
+    bottom: 18px;
+
+    z-index: 3;
+
+    padding:
+        7px 11px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(0,0,0,.25);
+
+    backdrop-filter:
+        blur(10px);
+
+    color:
+        rgba(255,255,255,.72);
+
+    font-size: 8px;
+
+    letter-spacing:
+        .22em;
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease;
+}
+
+
+.memory-card:hover
+.memory-image span {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(157,124,255,.35);
+}
+
+
+/* =========================================
+   MEMORY INFO
+========================================= */
+
+.memory-info {
+
+    position: relative;
+
+    padding:
+        24px 22px 26px;
+}
+
+
+.memory-info::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 22px;
+
+    width: 35px;
+    height: 1px;
+
+    background:
+        rgba(157,124,255,.55);
+}
+
+
+.memory-info h3 {
+
+    margin-top: 5px;
+
+    transition:
+        color .35s ease;
+}
+
+
+.memory-card:hover
+.memory-info h3 {
+
+    color:
+        var(--accent-one);
+}
+
+
+.memory-info p {
+
+    max-width: 270px;
+
+    transition:
+        color .35s ease;
+}
+
+
+/* =========================================
+   CONTINUE BUTTON
+========================================= */
+
+.memories-container >
+.secondary-button {
+
+    margin-top: 42px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(0,0,0,.2);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .memory-image {
+        height: 220px;
+    }
+
+    .memory-card:hover {
+        transform:
+            translateY(-5px);
+    }
+
+    .memory-info {
+        padding:
+            22px 20px 24px;
+    }
+
+}
