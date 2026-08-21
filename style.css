@@ -3023,3 +3023,7 @@ button {
         margin-top: 34px;
     }
 }
+.journey-restarting {
+    opacity: 0;
+    transition: opacity .5s ease;
+}
